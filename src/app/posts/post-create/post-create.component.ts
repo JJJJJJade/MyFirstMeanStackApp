@@ -16,6 +16,7 @@ export class PostCreateComponent {
   // }
 
   onAddPost() {
+
     this.newPost = this.enteredvalue;
   }
 }
