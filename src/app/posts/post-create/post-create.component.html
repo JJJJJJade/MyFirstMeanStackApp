@@ -1,4 +1,14 @@
-<textarea rows="6" [(ngModel)]='enteredvalue'></textarea>
+<mat-card>
+  <mat-form-field>
+    <textarea matInput rows="6" [(ngModel)]='enteredvalue'></textarea>
+  </mat-form-field>
+  <button
+    mat-raised-button
+    color="primary"
+    (click)="onAddPost()">Save post</button>
+</mat-card>
+
+<!-- mat-form-field is neceaasry to view the angular styling -->
 
 
 <!-- <textarea rows="6" [value]="newPost" #postInput></textarea> -->
@@ -11,7 +21,7 @@
 <!-- [(ng-model)] -->
 <!-- <hr>   horizontal line -->
 <hr>
-<button (click)="onAddPost()">Save post</button>
+
 
 <!-- string interpretation  important for outputing content, especially for simple text L17-->
 <!-- output the value of newPost here also when it changes -->
