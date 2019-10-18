@@ -1,8 +1,12 @@
-<mat-accordion>
-  <mat-expansion-panel>
+<mat-accordion multi="true" *ngIf="posts.length > 0">
+  <mat-expansion-panel *ngFor="let post of posts">
     <mat-expansion-panel-header>
-      <p>The expansion title!</p>
+      {{ post.title}}
     </mat-expansion-panel-header>
-    <p>I am in a expansion panel</p>
+    {{ post.content }}
   </mat-expansion-panel>
 </mat-accordion>
+<p class="info-text mat-body-1" *ngIf = "posts.length <= 0"> No posts added yet</p>
+
+<!-- structual directive: *ngFor="looping logic" - a helper tool that allows to repeat that element as often as required -->
+<!-- in mat-accordionl: set multi to true allows to open multiple panels -->
