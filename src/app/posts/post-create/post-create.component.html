@@ -1,2 +1,18 @@
-<textarea rows="6"></textarea>
-<h1>test text</h1>
+<textarea rows="6" [(ngModel)]='enteredvalue'></textarea>
+
+
+<!-- <textarea rows="6" [value]="newPost" #postInput></textarea> -->
+<!-- property binding used directly on the elements for outputting data in our template L17 -->
+<!-- local referncen: add a marker, a variable to any html element we want -->
+<!-- the content of textarea which user input will now become a variable newPost -->
+
+
+<!-- two-way binding: adding a new feature which combines the setting and reading of a value (two directional flow) -->
+<!-- [(ng-model)] -->
+<!-- <hr>   horizontal line -->
+<hr>
+<button (click)="onAddPost()">Save post</button>
+
+<!-- string interpretation  important for outputing content, especially for simple text L17-->
+<!-- output the value of newPost here also when it changes -->
+<p>{{ newPost }}</p>
