@@ -1,14 +1,38 @@
 <mat-card>
-  <mat-form-field>
-    <textarea matInput type="text" [(ngModel)]="enteredTitle"></textarea>
-  </mat-form-field>
-  <mat-form-field>
-      <textarea matInput rows="6" [(ngModel)]='enteredContent'></textarea>
-    </mat-form-field>
-  <button
-    mat-raised-button
-    color="primary"
-    (click)="onAddPost()">Save post</button>
+  <form (submit)="onAddPost(postForm)" #postForm="ngForm">
+      <!-- L25 postForm gives us access to that angular form object and we can pass postForm as an argument -->
+      <!-- L25 when angular detects a <form> element, and we get the forms module included (which we do)
+      it will automatically create a javascript object behind the scence which represents this form,
+      where we can easily register inputs as controls of which it will keep track of
+      where it will then store the values of these controls
+      and where we can easily add validation to and submit the form and use the value of the form  -->
+      <mat-form-field>
+          <input
+           matInput
+           type="text"
+           name= "title"
+           ngModel
+           required
+           #title= "ngModel">
+           <mat-error *ngIf= "title.invalid">Please enter a post title</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <textarea
+            matInput
+            rows="6"
+            name = "content"
+            ngModel
+            required
+            #content= "ngModel"></textarea>
+            <mat-error *ngIf= "content.invalid">Please enter a post content</mat-error>
+          </mat-form-field>
+        <button
+          mat-raised-button
+          color="primary"
+          type = "submit">Save post</button>
+          <!-- L25 default html feature: a button with type = submit in a form will  submit that form and submitting will trigger
+          a special event which we can listen to -->
+  </form>
 </mat-card>
 
 <!-- mat-form-field is neceaasry to view the angular styling -->
