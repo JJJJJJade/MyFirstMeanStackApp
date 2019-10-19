@@ -1,5 +1,8 @@
 import { Component, Input } from '@angular/core';
 // Input is a decorate to listen event from outside (=from the parent component only)
+
+import { Post } from '../post.model';
+
 @Component({
   selector: 'app-post-list',
   templateUrl: './post-list.component.html',
@@ -12,5 +15,5 @@ export class PostListComponent {
   //   {title: 'Third Post', content: 'This is the third post content'},
   //   {title: 'Forth Post', content: 'This is the forth post content'}
   // ];
-  @Input() posts = [];
+  @Input() posts: Post[] = [];
 }

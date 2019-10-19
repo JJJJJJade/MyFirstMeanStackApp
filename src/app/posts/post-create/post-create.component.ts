@@ -2,6 +2,8 @@ import { Component, EventEmitter, Output } from '@angular/core';
 // EventEmitter can allows post-create to emit an event when there is a new post
 // Output is the decorator
 
+import { Post } from '../post.model';
+
 @Component({
   selector: 'app-post-create',
   templateUrl: './post-create.component.html',
@@ -10,7 +12,8 @@ import { Component, EventEmitter, Output } from '@angular/core';
 export class PostCreateComponent {
   enteredContent = '';
   enteredTitle = '';
-  @Output() postCreated = new EventEmitter();
+  @Output() postCreated = new EventEmitter<Post>();
+  // < > force the data emit has to be the type inside it
 
   // newPost = 'NO CONTENT';   // a property to save the new posts, default is an empty string
 
@@ -24,7 +27,7 @@ export class PostCreateComponent {
   onAddPost() {
     // this.newPost = this.enteredvalue;
 
-    const post = { title: this.enteredTitle,content: this.enteredContent};
+    const post: Post = { title: this.enteredTitle,content: this.enteredContent};
     this.postCreated.emit(post);
   }
 }
